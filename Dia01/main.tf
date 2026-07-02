@@ -20,7 +20,7 @@ resource "aws_kms_key" "sri_secrets" {
   enable_key_rotation     = true
 
   tags = {
-    Proyecto = "facturacion-electronica"
+    Proyecto = "billingfact"
     Ambiente = var.ambiente
   }
 }
@@ -39,7 +39,7 @@ resource "aws_secretsmanager_secret" "certificado_p12" {
   kms_key_id  = aws_kms_key.sri_secrets.arn
   
   tags = {
-    Proyecto = "facturacion-electronica"
+    Proyecto = "billingfact"
     Ambiente = var.ambiente
   }
 }
@@ -63,7 +63,7 @@ resource "aws_secretsmanager_secret" "certificado_password" {
   kms_key_id  = aws_kms_key.sri_secrets.arn
 
   tags = {
-    Proyecto = "facturacion-electronica"
+    Proyecto = "billingfact"
     Ambiente = var.ambiente
   }
 }

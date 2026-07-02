@@ -1,2 +1,7 @@
 # Variables sensibles
 Dia01/terraform.tfvars
+Dia01/.terraform/
+Dia01/.terraform.lock.hcl
+Dia01/.terraform/providers/registry.terraform.io/hashicorp/aws/5.100.0/linux_amd64/LICENSE.txt
+Dia01/.terraform/providers/registry.terraform.io/hashicorp/aws/5.100.0/linux_amd64/terraform-provider-aws_v5.100.0_x5
+Dia01/terraform.tfstate
