@@ -18,10 +18,10 @@ variable "certificado_password" {
 variable "ambiente" {
   description = "certificacion o produccion"
   type        = string
-  default     = "cert10"
+  default     = "certificacion"
 }
 
-variable "email_alertas" {
-  description = "Email para recibir alertas de comprobantes fallidos"
+variable "s3_bucket_comprobantes" {
+  description = "Nombre del bucket S3 para guardar XML y RIDEs"
   type        = string
 }
