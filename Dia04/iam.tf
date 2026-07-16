@@ -24,6 +24,12 @@ resource "aws_iam_role" "lambda_sri" {
     Proyecto = "billingfact"
     Ambiente = var.ambiente
   }
+
+  lifecycle {
+    # Si el rol ya existe, no intentar recrearlo
+    ignore_changes  = [name, tags]
+    prevent_destroy = false
+  }  
 }
 
 # -------------------------------------------------
@@ -44,8 +50,8 @@ resource "aws_iam_policy" "leer_secrets_sri" {
           "secretsmanager:DescribeSecret"
         ]
         Resource = [
-          aws_secretsmanager_secret.certificado_p12.arn,
-          aws_secretsmanager_secret.certificado_password.arn
+          "arn:aws:secretsmanager:${var.aws_region}:${data.aws_caller_identity.current.id}:secret:sri/${var.ambiente}/certificado-p12*",
+          "arn:aws:secretsmanager:${var.aws_region}:${data.aws_caller_identity.current.id}:secret:sri/${var.ambiente}/certificado-password*"
         ]
       },
       {
@@ -66,6 +72,12 @@ resource "aws_iam_policy" "leer_secrets_sri" {
     Proyecto = "billingfact"
     Ambiente = var.ambiente
   }
+
+  lifecycle {
+    # Si el rol ya existe, no intentar recrearlo
+    ignore_changes  = [name, tags]
+    prevent_destroy = false
+  }  
 }
 
 # -------------------------------------------------
@@ -84,7 +96,9 @@ resource "aws_iam_policy" "lambda_logs_sri" {
         Action = [
           "logs:CreateLogGroup"
         ]
-        Resource = "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:*"
+        # Resource = "arn:aws:logs:${var.aws_region}:${aws_caller_identity.current.account_id}:*"
+        Resource = "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.id}:log-group:*"
+        # Resource = "${local.logs_arn_base}:log-group:*"
       },
       {
         Sid    = "EscribirLogs"
@@ -93,7 +107,9 @@ resource "aws_iam_policy" "lambda_logs_sri" {
           "logs:CreateLogStream",
           "logs:PutLogEvents"
         ]
-        Resource = "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/*:*"
+        # Resource = "arn:aws:logs:${var.aws_region}:${aws_caller_identity.current.account_id}:log-group:/aws/lambda/*:*"
+        Resource = "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.id}:log-group:/aws/lambda/*:log-stream:*"
+        # Resource = "${local.logs_arn_base}:log-group:/aws/lambda/*:log-stream:*"
       }
     ]
   })
@@ -102,6 +118,13 @@ resource "aws_iam_policy" "lambda_logs_sri" {
     Proyecto = "billingfact"
     Ambiente = var.ambiente
   }
+
+  lifecycle {
+    # Si el rol ya existe, no intentar recrearlo
+    ignore_changes  = [name, tags]
+    prevent_destroy = false
+  }
+
 }
 
 # -------------------------------------------------
@@ -144,6 +167,13 @@ resource "aws_iam_policy" "lambda_s3_sri" {
     Proyecto = "billingfact"
     Ambiente = var.ambiente
   }
+
+  lifecycle {
+    # Si el rol ya existe, no intentar recrearlo
+    ignore_changes  = [name, tags]
+    prevent_destroy = false
+  }
+
 }
 
 # -------------------------------------------------
@@ -174,6 +204,13 @@ resource "aws_iam_policy" "lambda_sqs_sri" {
     Proyecto = "billingfact"
     Ambiente = var.ambiente
   }
+
+  lifecycle {
+    # Si el rol ya existe, no intentar recrearlo
+    ignore_changes  = [name, tags]
+    prevent_destroy = false
+  }  
+
 }
 
 # -------------------------------------------------
@@ -202,4 +239,4 @@ resource "aws_iam_role_policy_attachment" "sqs" {
 # -------------------------------------------------
 # Data source: obtener el Account ID automaticamente
 # -------------------------------------------------
-data "aws_caller_identity" "current" {}
+# data "aws_caller_identity" "current" {}

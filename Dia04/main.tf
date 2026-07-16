@@ -74,3 +74,5 @@ resource "aws_secretsmanager_secret_version" "certificado_password" {
     password = var.certificado_password
   })
 }
+
+data "aws_caller_identity" "current" {}
