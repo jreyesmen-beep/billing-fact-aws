@@ -1,0 +1,16 @@
+
+terraform state show aws_iam_role.lambda_sri
+terraform state show aws_iam_policy.leer_secrets_sri
+terraform state show aws_iam_policy.lambda_s3_sri
+terraform state show aws_iam_policy.lambda_logs_sri
+terraform state show aws_kms_alias.sri_secrets
+terraform state show aws_secretsmanager_secret.certificado_p12 
+terraform state show aws_secretsmanager_secret.certificado_password
+
+terraform state show data.aws_caller_identity.current
+terraform state show data.aws_caller_identity.current.account_id
+
+
+
+terraform plan
+terraform apply
