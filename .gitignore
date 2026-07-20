@@ -1,2 +1,26 @@
 # Variables sensibles
 Dia01/terraform.tfvars
+Dia01/.terraform/
+Dia01/.terraform.lock.hcl
+Dia01/terraform.tfstate
+
+
+Dia03/terraform.tfvars
+Dia03/.terraform/
+Dia03/.terraform.lock.hcl
+Dia03/terraform.tfstate
+
+Dia04/terraform.tfvars
+Dia04/.terraform/
+Dia04/.terraform.lock.hcl
+Dia04/terraform.tfstate
+
+Dia05/terraform.tfvars
+Dia05/.terraform/
+Dia05/.terraform.lock.hcl
+Dia05/terraform.tfstate
+
+# Lambda
+../Dia05/lambda/facturacion.zip
+../Dia05/lambda/*.zip
+../Dia05/lambda/facturacion/package/*.*
