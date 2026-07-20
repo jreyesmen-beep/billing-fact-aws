@@ -15,3 +15,10 @@ Dia04/terraform.tfvars
 Dia04/.terraform/
 Dia04/.terraform.lock.hcl
 Dia04/terraform.tfstate
+Dia04/terraform.tfstate
+
+Dia05/terraform.tfvars
+Dia05/.terraform/
+Dia05/.terraform.lock.hcl
+Dia05/terraform.tfstate
+
