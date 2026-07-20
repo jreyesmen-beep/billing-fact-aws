@@ -20,3 +20,12 @@ Dia05/terraform.tfvars
 Dia05/.terraform/
 Dia05/.terraform.lock.hcl
 Dia05/terraform.tfstate
+
+# Lambda
+../lambda/facturacion.zip
+../lambda/*.zip
+../lambda/facturacion/package/*.*
+lambda/facturacion.zip
+lambda/*.zip
+lambda/facturacion/package/*.*
+lambda/facturacion/package/
