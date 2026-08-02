@@ -236,7 +236,3 @@ resource "aws_iam_role_policy_attachment" "sqs" {
   policy_arn = aws_iam_policy.lambda_sqs_sri.arn
 }
 
-# -------------------------------------------------
-# Data source: obtener el Account ID automaticamente
-# -------------------------------------------------
-# data "aws_caller_identity" "current" {}
