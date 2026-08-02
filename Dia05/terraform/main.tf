@@ -19,10 +19,98 @@ resource "aws_kms_key" "sri_secrets" {
   deletion_window_in_days = 30
   enable_key_rotation     = true
 
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      # 1. Administración completa para el owner
+      {
+        Sid    = "AdministracionCompleta"
+        Effect = "Allow"
+        Principal = {
+          AWS = "arn:aws:iam::${data.aws_caller_identity.current.id}:root"
+        }
+        Action   = "kms:*"
+        Resource = "*"
+      },
+      # 2. CloudWatch Logs
+      {
+        Sid    = "CloudWatchLogsEncriptar"
+        Effect = "Allow"
+        Principal = {
+          Service = "logs.${var.aws_region}.amazonaws.com"
+        }
+        Action = [
+          "kms:Encrypt",
+          "kms:Decrypt",
+          "kms:ReEncrypt*",
+          "kms:GenerateDataKey",
+          "kms:DescribeKey"
+        ]
+        Resource = "*"
+        Condition = {
+          ArnLike = {
+            "kms:EncryptionContext:aws:logs:arn" = "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.id}:*"
+          }
+        }
+      },
+      # 3. Secrets Manager
+      {
+        Sid    = "SecretsManagerEncriptar"
+        Effect = "Allow"
+        Principal = {
+          Service = "secretsmanager.amazonaws.com"
+        }
+        Action = [
+          "kms:Encrypt",
+          "kms:Decrypt",
+          "kms:ReEncrypt*",
+          "kms:GenerateDataKey",
+          "kms:DescribeKey"
+        ]
+        Resource = "*"
+      },
+      # 4. S3
+      {
+        Sid    = "S3Encriptar"
+        Effect = "Allow"
+        Principal = {
+          Service = "s3.amazonaws.com"
+        }
+        Action = [
+          "kms:Encrypt",
+          "kms:Decrypt",
+          "kms:ReEncrypt*",
+          "kms:GenerateDataKey",
+          "kms:DescribeKey"
+        ]
+        Resource = "*"
+      },
+      # 5. Rol Lambda
+      {
+        Sid    = "LambdaDescifrar"
+        Effect = "Allow"
+        Principal = {
+          AWS = "arn:aws:iam::${data.aws_caller_identity.current.id}:role/rol-fact-lambda-sri-${var.ambiente}"
+        }
+        Action = [
+          "kms:Decrypt",
+          "kms:DescribeKey",
+          "kms:GenerateDataKey"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+
   tags = {
     Proyecto = "billingfact"
     Ambiente = var.ambiente
   }
+
+  lifecycle {
+    ignore_changes = [tags]
+  }  
+
 }
 
 resource "aws_kms_alias" "sri_secrets" {
@@ -75,4 +163,7 @@ resource "aws_secretsmanager_secret_version" "certificado_password" {
   })
 }
 
+# -------------------------------------------------
+# Data source: obtener el Account ID automaticamente
+# -------------------------------------------------
 data "aws_caller_identity" "current" {}
