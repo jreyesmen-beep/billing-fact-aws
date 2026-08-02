@@ -20,6 +20,7 @@ Dia05/.terraform/
 Dia05/.terraform/providers/
 Dia05/.terraform.lock.hcl
 Dia05/terraform.tfstate
+Dia05/terraform.tfstate.backup
 
 # Lambda
 Dia05/lambda/facturacion.zip
