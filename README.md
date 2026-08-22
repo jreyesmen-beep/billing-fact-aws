@@ -20,4 +20,7 @@ Dia 4
 
 Dia 5
   - Lambda
+
+Dia 7
+  - API GateWay
   

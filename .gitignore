@@ -27,3 +27,18 @@ Dia05/lambda/facturacion.zip
 Dia05/lambda/*.zip
 Dia05/lambda/facturacion/package/*.*
 Dia05/lambda/facturacion/package/
+
+# API Gateway
+Dia07/lambda/facturacion.zip
+Dia07/lambda/*.zip
+Dia07/lambda/facturacion/package/*.*
+Dia07/lambda/facturacion/package/
+
+Dia07/terraform.tfvars
+Dia07/.terraform/
+Dia07/.terraform/providers/
+Dia07/.terraform.lock.hcl
+Dia07/terraform/.terraform/
+Dia07/terraform/.terraform/providers/
+Dia07/terraform.tfstate
+Dia07/terraform.tfstate.backup
