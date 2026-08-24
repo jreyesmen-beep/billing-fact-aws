@@ -39,7 +39,7 @@ importar "aws_lambda_function.fact_sri" \
   "fact-sri-${AMBIENTE}"
 
 importar "aws_lambda_function.api_proxy" \
-  "api-proxy-sri-${AMBIENTE}"
+  "api-proxy-fact-sri-${AMBIENTE}"
 
 # SQS
 importar "aws_sqs_queue.cola_sri" \
@@ -58,6 +58,17 @@ importar "aws_secretsmanager_secret.certificado_password" \
 # CloudWatch Log Groups
 importar "aws_cloudwatch_log_group.lambda_fact_sri" \
   "/aws/lambda/fact-sri-${AMBIENTE}"
+
+
+# Event Source Mapping
+importar "aws_lambda_event_source_mapping.sqs_trigger" \
+  "ced514d4-5551-42e3-a019-1764667f2a01"
+
+importar "aws_lambda_permission.apigateway_proxy" \
+  "api-proxy-fact-sri-${AMBIENTE}/AllowAPIGatewayInvokeProxy"
+
+importar "aws_lambda_permission.apigateway_lambda" \
+  "fact-sri-${AMBIENTE}/AllowAPIGatewayInvoke"
 
 echo "✅ Importación completa"
 echo "🚀 Ejecutando terraform plan..."

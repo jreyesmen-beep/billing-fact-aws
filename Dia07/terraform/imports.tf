@@ -72,6 +72,13 @@ import {
 }
 
 import {
+  to = aws_iam_role.apigateway_sqs
+  id = "rol-apigateway-sqs-fact-sri-${var.ambiente}"
+}
+
+
+
+import {
   to = aws_s3_bucket.comprobantes
   id = "fact-sri-tu-empresa"
 }
@@ -82,9 +89,34 @@ import {
 }
 
 import {
-  to = aws_lambda_function.fact_sri
-  id = "arn:aws:lambda:${var.aws_region}:${local.account_id}:function:fact-sri-${var.ambiente}"
+  to = aws_cloudwatch_log_group.apigw_logs
+  id = "/aws/apigateway/fact-sri-${var.ambiente}" #"arn:aws:logs:${var.aws_region}:${local.account_id}:log-group:/aws/lambda/fact-sri-${var.ambiente}"
 }
 
+import {
+  to = aws_lambda_function.fact_sri
+  id = "fact-sri-certificacion"
+}
 
+# Lambda proxy
+import {
+  to = aws_lambda_function.api_proxy
+  id = "api-proxy-fact-sri-certificacion"
+}
 
+import {
+  to = aws_lambda_event_source_mapping.sqs_trigger
+  id = "ced514d4-5551-42e3-a019-1764667f2a01"
+}
+
+import {
+  to = aws_lambda_permission.apigateway_proxy 
+  id = "api-proxy-fact-sri-certificacion/AllowAPIGatewayInvokeProxy"
+}
+
+import {
+  to = aws_lambda_permission.apigateway_lambda 
+  id = "fact-sri-certificacion/AllowAPIGatewayInvoke"
+}
+
+  
