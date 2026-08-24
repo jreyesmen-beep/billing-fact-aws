@@ -38,6 +38,7 @@ Dia07/terraform.tfvars
 Dia07/.terraform/
 Dia07/.terraform/providers/
 Dia07/.terraform.lock.hcl
+Dia07/terraform/terraform.tfvars
 Dia07/terraform/.terraform/
 Dia07/terraform/.terraform/providers/
 Dia07/terraform.tfstate
