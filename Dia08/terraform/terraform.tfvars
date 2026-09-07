@@ -4,6 +4,7 @@ certificado_password = "Kuara25Funci"
 ambiente             = "certificacion"
 s3_bucket_comprobantes = "fact-sri-tu-empresa"
 email_alertas        = "jreyesmen@gmail.com"
+proyect_name         = "billingfact"
 
 # Ambiente certificacion
 sri_url_recepcion    = "https://celcer.sri.gob.ec/comprobantes-electronicos-ws/RecepcionComprobantesOffline?wsdl"

@@ -227,23 +227,24 @@ resource "aws_api_gateway_method" "get_factura" {
   }
 }
 
+# GET /facturas/{claveAcceso} → api-proxy
 resource "aws_api_gateway_integration" "get_factura_lambda" {
   rest_api_id             = aws_api_gateway_rest_api.sri.id
   resource_id             = aws_api_gateway_resource.factura_detalle.id
   http_method             = aws_api_gateway_method.get_factura.http_method
   type                    = "AWS_PROXY"
   integration_http_method = "POST"
-  uri                     = aws_lambda_function.fact_sri.invoke_arn
+  uri                     = aws_lambda_function.api_proxy.invoke_arn  # ← api_proxy
 }
 
-# Permiso para que API Gateway invoque la Lambda
-resource "aws_lambda_permission" "apigateway_lambda" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.fact_sri.function_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.sri.execution_arn}/*/*"
-}
+# # Permiso para que API Gateway invoque la Lambda
+# resource "aws_lambda_permission" "apigateway_lambda" {
+#   statement_id  = "AllowAPIGatewayInvoke"
+#   action        = "lambda:InvokeFunction"
+#   function_name = aws_lambda_function.fact_sri.function_name
+#   principal     = "apigateway.amazonaws.com"
+#   source_arn    = "${aws_api_gateway_rest_api.sri.execution_arn}/*/*"
+# }
 
 # =================================================
 # Validador de requests
