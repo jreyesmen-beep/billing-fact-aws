@@ -23,4 +23,6 @@ Dia 5
 
 Dia 7
   - API GateWay
-  
+
+Dia 8
+  - Cognito

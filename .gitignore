@@ -43,3 +43,20 @@ Dia07/terraform/.terraform/
 Dia07/terraform/.terraform/providers/
 Dia07/terraform.tfstate
 Dia07/terraform.tfstate.backup
+
+# Cognito
+Dia08/lambda/facturacion.zip
+Dia08/lambda/*.zip
+Dia08/lambda/facturacion/package/*.*
+Dia08/lambda/facturacion/package/
+
+Dia08/Pruebas/UsuarioCognito-Ori.txt
+
+Dia08/terraform.tfvars
+Dia08/.terraform/
+Dia08/.terraform/providers/
+Dia08/.terraform.lock.hcl
+Dia08/terraform/.terraform/
+Dia08/terraform/.terraform/providers/
+Dia08/terraform.tfstate
+Dia08/terraform.tfstate.backup
