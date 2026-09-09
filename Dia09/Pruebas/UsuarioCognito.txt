@@ -1,0 +1,13 @@
+# Crear usuario Cognito
+
+# Obtener el User Pool ID
+cd terraform
+terraform output cognito_user_pool_id
+
+# Crear el usuario
+aws cognito-idp admin-create-user \
+  --user-pool-id us-east-1_XX \
+  --username tucorreo@domino.com \
+  --user-attributes Name=email,Value=tucorreo@dominio.com Name=email_verified,Value=true \
+  --temporary-password "Temporal1234!" \
+  --region us-east-1
