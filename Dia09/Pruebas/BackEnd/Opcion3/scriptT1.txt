@@ -1,3 +1,0 @@
-aws logs tail /aws/lambda/facturacion-sri-certificacion \
-  --follow \
-  --format short
