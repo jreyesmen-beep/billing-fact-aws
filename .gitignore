@@ -69,3 +69,7 @@ Dia09/terraform/.terraform/
 Dia09/terraform/.terraform/providers/
 Dia09/terraform.tfstate
 Dia09/terraform.tfstate.backup
+Dia09/lambda/facturacion.zip
+Dia09/lambda/*.zip
+Dia09/lambda/facturacion/package/*.*
+Dia09/lambda/facturacion/package/
