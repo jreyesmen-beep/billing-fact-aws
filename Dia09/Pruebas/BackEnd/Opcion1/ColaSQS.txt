@@ -1,17 +1,17 @@
 aws sqs send-message \
   --queue-url https://sqs.us-east-1.amazonaws.com/238700389543/cola-fact-sri-certificacion \
   --message-body '{
-    "clave_acceso":        "2009202601091698509600110010020000000911234567811",
+    "clave_acceso":        "1410202601091698509600110010020000001211234567816",
     "ambiente":            "1",
     "ruc":                 "0916985096001",
     "razon_social":        "JAIRO REYES",
     "nombre_comercial":    "JAIRO REYES",
     "establecimiento":     "001",
     "punto_emision":       "002",
-    "secuencial":          "000000091",
+    "secuencial":          "000000121",
     "dir_matriz":          "DIRECCION MATRIZ",
     "dir_establecimiento": "DIRECCION establecimiento",
-    "fecha_emision":       "20/09/2026",
+    "fecha_emision":       "14/10/2026",
     "tipo_id_comprador":   "07",
     "razon_comprador":     "CONSUMIDOR FINAL",
     "id_comprador":        "9999999999999",
