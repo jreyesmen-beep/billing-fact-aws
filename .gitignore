@@ -60,3 +60,12 @@ Dia08/terraform/.terraform/
 Dia08/terraform/.terraform/providers/
 Dia08/terraform.tfstate
 Dia08/terraform.tfstate.backup
+
+Dia09/terraform.tfvars
+Dia09/.terraform/
+Dia09/.terraform/providers/
+Dia09/.terraform.lock.hcl
+Dia09/terraform/.terraform/
+Dia09/terraform/.terraform/providers/
+Dia09/terraform.tfstate
+Dia09/terraform.tfstate.backup
