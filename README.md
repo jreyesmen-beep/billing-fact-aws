@@ -26,3 +26,15 @@ Dia 7
 
 Dia 8
   - Cognito
+
+Dia 9
+  - Pruebas BackEnd
+
+Dia 10
+  - Live de toda la infraetructura del Backend
+
+--Inicio FrontEnd
+
+Dia 11
+  - CloudFront
+  
