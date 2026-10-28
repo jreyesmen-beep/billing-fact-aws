@@ -73,3 +73,16 @@ Dia09/lambda/facturacion.zip
 Dia09/lambda/*.zip
 Dia09/lambda/facturacion/package/*.*
 Dia09/lambda/facturacion/package/
+
+Dia11/terraform.tfvars
+Dia11/.terraform/
+Dia11/.terraform/providers/
+Dia11/.terraform.lock.hcl
+Dia11/terraform/.terraform/
+Dia11/terraform/.terraform/providers/
+Dia11/terraform.tfstate
+Dia11/terraform.tfstate.backup
+Dia11/lambda/facturacion.zip
+Dia11/lambda/*.zip
+Dia11/lambda/facturacion/package/*.*
+Dia11/lambda/facturacion/package/
