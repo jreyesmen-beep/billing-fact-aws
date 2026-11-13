@@ -33,8 +33,13 @@ Dia 9
 Dia 10
   - Live de toda la infraetructura del Backend
 
---Inicio FrontEnd
+/*********************************/
+/****     Inicio FrontEnd      ***/
+/*********************************/
 
 Dia 11
   - CloudFront
+  
+Dia 12
+  - React
   
