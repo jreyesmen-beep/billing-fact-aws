@@ -1,0 +1,5 @@
+
+
+aws logs tail /aws/lambda/fact-sri-certificacion \
+  --follow \
+  --format short

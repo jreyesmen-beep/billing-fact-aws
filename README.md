@@ -42,4 +42,6 @@ Dia 11
   
 Dia 12
   - React
-  
+
+Dia 13
+  - Deploy

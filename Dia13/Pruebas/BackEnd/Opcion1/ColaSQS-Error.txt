@@ -1,0 +1,102 @@
+#Clave Generada anterior mente
+
+aws sqs send-message \
+  --queue-url https://sqs.us-east-1.amazonaws.com/238700389543/cola-fact-sri-certificacion \
+  --message-body '{
+    "clave_acceso":        "1609202601091698509600110010020000000881234567819",
+    "ambiente":            "1",
+    "ruc":                 "0916985096001",
+    "razon_social":        "JAIRO REYES",
+    "nombre_comercial":    "JAIRO REYES",
+    "establecimiento":     "001",
+    "punto_emision":       "002",
+    "secuencial":          "000000088",
+    "dir_matriz":          "DIRECCION MATRIZ",
+    "dir_establecimiento": "DIRECCION establecimiento",
+    "fecha_emision":       "16/09/2026",
+    "tipo_id_comprador":   "07",
+    "razon_comprador":     "CONSUMIDOR FINAL",
+    "id_comprador":        "9999999999999",
+    "total_sin_impuestos": 5,
+    "total_descuento": 0,
+    "importe_total": 5.75,
+    "impuestos": [
+      {
+        "codigo": "2",
+        "tarifa": "4",
+        "base": 5,
+        "valor": 0.75
+      }
+    ],
+    "items": [
+      {
+        "codigo": "001",
+        "descripcion": "producto",
+        "cantidad": 1,
+        "precio_unitario": 5,
+        "descuento": 0,
+        "precio_total": 5,
+        "impuestos": [
+          {
+            "codigo": "2",
+            "tarifa": "4",
+            "porcentaje": "15",
+            "base": 5,
+            "valor": 0.75
+          }
+        ]
+      }
+    ]
+  }'
+
+#Error en comprador
+
+aws sqs send-message \
+  --queue-url https://sqs.us-east-1.amazonaws.com/238700389543/cola-fact-sri-certificacion \
+  --message-body '{
+    "clave_acceso":        "2009202601091698509600110010020000000881234567819",
+    "ambiente":            "1",
+    "ruc":                 "0916985096001",
+    "razon_social":        "JAIRO REYES",
+    "nombre_comercial":    "JAIRO REYES",
+    "establecimiento":     "001",
+    "punto_emision":       "002",
+    "secuencial":          "000000088",
+    "dir_matriz":          "DIRECCION MATRIZ",
+    "dir_establecimiento": "DIRECCION establecimiento",
+    "fecha_emision":       "16/09/2026",
+    "tipo_id_comprador":   "05",
+    "razon_comprador":     "CONSUMIDOR FINAL",
+    "id_comprador":        "9999999999999",
+    "total_sin_impuestos": 5,
+    "total_descuento": 0,
+    "importe_total": 5.75,
+    "impuestos": [
+      {
+        "codigo": "2",
+        "tarifa": "4",
+        "base": 5,
+        "valor": 0.75
+      }
+    ],
+    "items": [
+      {
+        "codigo": "001",
+        "descripcion": "producto",
+        "cantidad": 1,
+        "precio_unitario": 5,
+        "descuento": 0,
+        "precio_total": 5,
+        "impuestos": [
+          {
+            "codigo": "2",
+            "tarifa": "4",
+            "porcentaje": "15",
+            "base": 5,
+            "valor": 0.75
+          }
+        ]
+      }
+    ]
+  }'
+
